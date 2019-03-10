@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
 
 import { ChannelsOverviewPage } from './channels-overview.page'
+import { MomentModule } from 'ngx-moment'
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), MomentModule],
   declarations: [ChannelsOverviewPage]
 })
 export class ChannelsOverviewPageModule {}
