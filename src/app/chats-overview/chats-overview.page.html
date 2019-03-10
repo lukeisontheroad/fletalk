@@ -12,12 +12,12 @@
         >{{ chat.name }}
         <p>{{ chat.lastMessage }}</p>
       </ion-label>
-      <small slot="end">{{ chat.lastMessageAt | date: 'dd.yy' }}</small>
+      <small slot="end">{{ chat.lastMessageAt | amTimeAgo }}</small>
     </ion-item>
   </ion-list>
 
   <ng-template #loading>
-    Loading stuff...
+    Loading chats...
   </ng-template>
 </ion-content>
 

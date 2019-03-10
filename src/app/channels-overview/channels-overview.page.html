@@ -14,7 +14,7 @@
       </ion-label>
       <ion-row slot="end" class="ion-no-padding" class="ion-justify-content-end">
         <ion-col size="12" class="ion-no-padding ion-text-end">
-          <small>{{ chat.lastMessageAt | date: 'dd.yy' }}</small>
+          <small>{{ chat.lastMessageAt | amTimeAgo }}</small>
         </ion-col>
         <ion-col size="12" class="ion-no-padding ion-text-end">
           <ion-chip color="primary"> {{ chat.unreadCount }} </ion-chip>
@@ -24,6 +24,6 @@
   </ion-list>
 
   <ng-template #loading>
-    Loading stuff...
+    Loading messages...
   </ng-template>
 </ion-content>

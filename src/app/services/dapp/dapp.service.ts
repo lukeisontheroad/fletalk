@@ -25,7 +25,7 @@ export interface Message {
   providedIn: 'root'
 })
 export class DappService {
-  private baseUrl = 'http://localhost:8080/api/'
+  private baseUrl = 'http://130.82.239.102:8080/api/'
   private userid: string
   private password: string
   private ourAddress: string
