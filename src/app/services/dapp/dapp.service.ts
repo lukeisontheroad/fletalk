@@ -43,7 +43,6 @@ export class DappService {
           this.init(this.ourAddress)
         })
         .catch(() => console.warn('init failed'))
-      console.log('asdfasdf')
     } else {
       console.log('user not found')
     }
