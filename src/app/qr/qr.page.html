@@ -1,0 +1,12 @@
+<ion-header no-border no-shadow>
+  <ion-toolbar> </ion-toolbar>
+</ion-header>
+<ion-content no-padding>
+  <ion-text color="primary"><h1 class="heading ion-padding-horizontal ion-no-margin">QR Code</h1></ion-text>
+  <ion-row class="ion-padding">
+    <qrcode [level]="'L'" [qrdata]="qrData" [size]="300"></qrcode>
+  </ion-row>
+  <ion-row class="ion-padding">
+    <ion-button [routerLink]="['/tabs/settings']">Done</ion-button>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,6 @@
+{
+  "rulesDirectory": ["codelyzer"],
+  "rules": {
+    "semicolon": [true, "never"]
+  }
+}

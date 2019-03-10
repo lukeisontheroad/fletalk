@@ -1,0 +1,24 @@
+.outgoing--container {
+  background-color: rgba(var(--ion-color-primary-rgb), 0.08);
+  border: 1px solid rgba(var(--ion-color-primary-rgb), 0.24);
+  box-shadow: 0 10px 20px 0 rgba(var(--ion-color-primary-rgb), 0.12);
+}
+.incoming--container {
+  background-color: rgba(var(--ion-color-secondary-rgb), 0.02);
+  border: 1px solid rgba(var(--ion-color-secondary-rgb), 0.12);
+  box-shadow: 0 10px 20px 0 rgba(var(--ion-color-secondary-rgb), 0.12);
+}
+.outgoing--container,
+.incoming--container {
+  padding: 8px;
+  display: inline-block;
+}
+small {
+  opacity: 0.48;
+}
+.channel--incoming--container {
+  ion-avatar {
+    height: 24px;
+    width: 24px;
+  }
+}

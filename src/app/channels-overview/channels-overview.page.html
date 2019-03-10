@@ -1,0 +1,29 @@
+<ion-header no-border no-shadow>
+  <ion-toolbar> </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding">
+  <ion-text color="primary"><h1 class="heading ion-padding-horizontal ion-no-margin">Channels</h1></ion-text>
+  <ion-list *ngIf="(chats | async) as chats; else loading" lines="none">
+    <ion-item *ngFor="let chat of chats" [routerLink]="['/chat-detail', chat.id]" routerDirection="forward" detail="false">
+      <ion-avatar slot="start">
+        <img [src]="chat.logo" />
+      </ion-avatar>
+      <ion-label
+        >{{ chat.name }}
+        <p>{{ chat.lastMessage }}</p>
+      </ion-label>
+      <ion-row slot="end" class="ion-no-padding" class="ion-justify-content-end">
+        <ion-col size="12" class="ion-no-padding ion-text-end">
+          <small>{{ chat.lastMessageAt | date: 'dd.yy' }}</small>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding ion-text-end">
+          <ion-chip color="primary"> {{ chat.unreadCount }} </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #loading>
+    Loading stuff...
+  </ng-template>
+</ion-content>

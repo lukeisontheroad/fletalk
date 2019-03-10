@@ -1,0 +1,81 @@
+<ng-container *ngIf="(chat | async) as chat; else loading">
+  <ion-header no-border no-shadow>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img [src]="chat.logo" />
+        </ion-avatar>
+        <ion-label
+          >{{ chat.name }}
+          <p>{{ chat.lastMessageAt | date: 'dd.yy' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+    <ng-container *ngFor="let message of chat.messages">
+      <ion-row *ngIf="chat.participants.length <= 1 && message.from !== ourAddress" class="ion-padding-vertical">
+        <ion-col size="9">
+          <div class="incoming--container">
+            <p class="ion-no-margin">
+              {{ message.text }}
+            </p>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <small>{{ message.timestamp | date: 'hh:mm:ss' }}</small>
+        </ion-col>
+      </ion-row>
+
+      <ion-row
+        *ngIf="chat.participants.length > 1 && message.from !== ourAddress"
+        class="channel--incoming--container ion-padding-vertical"
+      >
+        <ion-col size="1">
+          <ion-avatar>
+            <img [src]="chat.logo" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="9">
+          <div class="incoming--container">
+            <p class="ion-no-margin">
+              {{ message.text }}
+            </p>
+          </div>
+        </ion-col>
+        <ion-col size="2">
+          <small>{{ message.timestamp | date: 'hh:mm:ss' }}</small>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="message.from === ourAddress" class="ion-padding-vertical">
+        <ion-col size="3" class="ion-text-right">
+          <small><ion-icon name="checkmark"></ion-icon> {{ message.timestamp | date: 'hh:mm:ss' }}</small>
+        </ion-col>
+        <ion-col size="9">
+          <div class="outgoing--container ion-text-right">
+            <p class="ion-no-margin">
+              {{ message.text }}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-item lines="none">
+        <ion-input placeholder="Message" [(ngModel)]="text" (keydown)="keyDownFunction($event)"></ion-input>
+        <ion-icon name="md-send" slot="end" (click)="send()"></ion-icon>
+      </ion-item>
+    </ion-toolbar>
+  </ion-footer>
+</ng-container>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

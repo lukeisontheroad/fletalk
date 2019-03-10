@@ -1,0 +1,14 @@
+<ion-header no-border no-shadow>
+  <ion-toolbar> </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-text color="primary"><h1 class="heading ion-padding-horizontal ion-no-margin">Settings</h1></ion-text>
+  <ion-list>
+    <ion-item (click)="scan()">
+      Scan QR
+    </ion-item>
+    <ion-item [routerLink]="['/qr']">
+      Show QR
+    </ion-item>
+  </ion-list>
+</ion-content>

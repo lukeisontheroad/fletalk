@@ -1,0 +1,7 @@
+{
+  "name": "fletalk",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
